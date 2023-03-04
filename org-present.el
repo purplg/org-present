@@ -74,6 +74,7 @@
   "Holds the user set value of cursor for `org-present-read-only'")
 (defvar org-present-overlays-list nil)
 (defvar org-present-one-big-page nil)
+(defvar org-present-show-options '("title:" "author:" "date:" "email:"))
 
 (define-minor-mode org-present-mode
   "Minimalist presentation minor mode for org-mode."
@@ -165,7 +166,7 @@
   "Returns non-nil if string is an org-mode exporter option whose value we want to show."
   (save-match-data
     (string-match
-     (regexp-opt '("title:" "author:" "date:" "email:"))
+     (regexp-opt org-present-show-options)
      string)))
 
 (defvar org-present-hide-stars-in-headings t
